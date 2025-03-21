@@ -7,7 +7,7 @@ variable "beanstalkappenv" {
 }
 
 variable "solution_stack_name" {
-  default = "64bit Amazon Linux 2017.09 v2.6.4 running Python 3.6"
+  default = "64bit Amazon Linux 2023 v4.4.4 running Corretto 17"
 }
 
 variable "tier" {
