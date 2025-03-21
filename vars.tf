@@ -19,5 +19,5 @@ variable "vpc_id" {
 }
 
 variable "public_subnets" {
-  default = ["subnet-02b46a37561d8e1e5", "subnet-0c454821a08edd5ec"]
+  default = ["subnet-02b46a37561d8e1e5", "subnet-00158c49bb7aa8673"]
 }
