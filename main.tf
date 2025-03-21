@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-2"
 }
 
 resource "aws_elastic_beanstalk_application" "myelasticapp" {
@@ -34,7 +34,7 @@ resource "aws_elastic_beanstalk_environment" "beanstalkappenv" {
   setting {
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    value     = "subnet-02b46a37561d8e1e5"
+    value     = join(",",(public_subnets))
   }
 
   setting {
