@@ -2,6 +2,32 @@ provider "aws" {
   region = "us-west-2"
 }
 
+resource "aws_iam_role" "role" {
+  name = "test_role_new"
+  path = "/"
+
+  assume_role_policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Principal": {
+               "Service": "ec2.amazonaws.com"
+            },
+            "Effect": "Allow",
+            "Sid": ""
+        }
+    ]
+}
+EOF
+}
+
+resource "aws_iam_instance_profile" "subject_profile" {
+  name = "aws-elasticbeanstalk-ec2-role"
+  role = aws_iam_role.role.name
+}
+
 resource "aws_elastic_beanstalk_application" "myelasticapp" {
   name        = var.myelasticapp
   description = "My Test App"
